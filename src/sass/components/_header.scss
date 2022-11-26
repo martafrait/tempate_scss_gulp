@@ -1,4 +1,53 @@
-.header{
-    background-color: red;
-    color: #fff;
+$color: #f00;
+$ml: 8px;
+
+@mixin button($width, $height, $bgc) {
+    width: $width !important;
+    height: $height;
+    background-color: $bgc;
+}
+
+
+.header {
+    background-color: rgb(15, 15, 15);
+
+    &__title {
+        color: antiquewhite;
+    }
+
+    &__menu {
+        ul {
+            margin: 0;
+            padding: 0;
+
+            :last-child {
+                a {
+                    @include button(30px, 10px, blue)
+                }
+            }
+
+            li {
+                list-style: none;
+                margin-left: $ml / 2;
+
+                a {
+                    text-decoration: none;
+                    color: $color;
+
+                    &:hover {
+                        color: aqua;
+                    }
+
+                    &.yellow {
+                        @include button(14px, 10px, yellow)
+                    }
+
+                    @media screen and (max-width: 980px) {
+                        color: aqua;
+                    }
+
+                }
+            }
+        }
+    }
 }
