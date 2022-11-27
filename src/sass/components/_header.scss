@@ -1,4 +1,64 @@
+$hight_burger_line: 2px;
+
+
 .header{
+    padding: 10px 0;
     background-color: red;
     color: #fff;
+    &__logo{
+        color: #fff;
+    }
+    &__nav{
+        color: #fff;
+        ul{
+            margin: 0;
+            padding: 0;
+            li{
+                list-style: none;
+                margin-right: 10px;
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &__burger{
+        position: relative;
+       
+        span{
+            height: $hight_burger_line;
+            width: 14px;
+            background-color: #fff;
+        }
+        :first-child{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        :last-child{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        :nth-child(2){
+            position: absolute;
+            left: 0;
+            top: 50% - $hight_burger_line/2;
+        }
+        &.active{
+            :first-child{
+                position: absolute;
+                top: 40% !important;
+                transform: rotate(45deg);        
+            }
+            :last-child{
+                transform: rotate(-45deg);
+                bottom: 60%;
+            }
+            :nth-child(2){
+                display: none;
+            }
+        }
+    }
 }
